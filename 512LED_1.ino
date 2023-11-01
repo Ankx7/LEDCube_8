@@ -5,84 +5,92 @@
 
 byte cube[][8] = {
   // Layer 1
-  {0b00000000,  // Row 1
-   0b00000000,  // Row 2
-   0b00000000,  // Row 3
-   0b00000000,  // Row 4
-   0b00000000,  // Row 5
-   0b00000000,  // Row 6
-   0b00000000,  // Row 7
-   0b00000000}, // Row 8
+  { 0b00000000,  // Row 1
+    0b00000000,  // Row 2
+    0b00000000,  // Row 3
+    0b00000000,  // Row 4
+    0b00000000,  // Row 5
+    0b00000000,  // Row 6
+    0b00000000,  // Row 7
+    0b00000000
+  }, // Row 8
 
   // Layer 2
-  {0b00000000,  // Row 1
-   0b00000000,  // Etc ...
-   0b00000000, 
-   0b00000000,
-   0b00000000,
-   0b00000000, 
-   0b00000000, 
-   0b00000000},
+  { 0b00000000,  // Row 1
+    0b00000000,  // Etc ...
+    0b00000000,
+    0b00000000,
+    0b00000000,
+    0b00000000,
+    0b00000000,
+    0b00000000
+  },
 
   // Layer 3
-  {0b00000000, 
-   0b00000000, 
-   0b00000000, 
-   0b00000000,
-   0b00000000,
-   0b00000000, 
-   0b00000000, 
-   0b00000000},
+  { 0b00000000,
+    0b00000000,
+    0b00000000,
+    0b00000000,
+    0b00000000,
+    0b00000000,
+    0b00000000,
+    0b00000000
+  },
 
   // Layer 4
-  {0b00000000, 
-   0b00000000, 
-   0b00000000, 
-   0b00000000,
-   0b00000000,
-   0b00000000, 
-   0b00000000, 
-   0b00000000},
+  { 0b00000000,
+    0b00000000,
+    0b00000000,
+    0b00000000,
+    0b00000000,
+    0b00000000,
+    0b00000000,
+    0b00000000
+  },
 
-  // Layer 5 
-  {0b00000000, 
-   0b00000000, 
-   0b00000000, 
-   0b00000000,
-   0b00000000,
-   0b00000000, 
-   0b00000000, 
-   0b00000000},
+  // Layer 5
+  { 0b00000000,
+    0b00000000,
+    0b00000000,
+    0b00000000,
+    0b00000000,
+    0b00000000,
+    0b00000000,
+    0b00000000
+  },
 
   // Layer 6
-  {0b00000000, 
-   0b00000000, 
-   0b00000000, 
-   0b00000000,
-   0b00000000,
-   0b00000000, 
-   0b00000000, 
-   0b00000000},
+  { 0b00000000,
+    0b00000000,
+    0b00000000,
+    0b00000000,
+    0b00000000,
+    0b00000000,
+    0b00000000,
+    0b00000000
+  },
 
   // Layer 7
-  {0b00000000, 
-   0b00000000, 
-   0b00000000, 
-   0b00000000,
-   0b00000000,
-   0b00000000, 
-   0b00000000, 
-   0b00000000},
+  { 0b00000000,
+    0b00000000,
+    0b00000000,
+    0b00000000,
+    0b00000000,
+    0b00000000,
+    0b00000000,
+    0b00000000
+  },
 
   // Layer 8
-  {0b00000000, 
-   0b00000000, 
-   0b00000000, 
-   0b00000000,
-   0b00000000,
-   0b00000000, 
-   0b00000000, 
-   0b00000000}
+  { 0b00000000,
+    0b00000000,
+    0b00000000,
+    0b00000000,
+    0b00000000,
+    0b00000000,
+    0b00000000,
+    0b00000000
+  }
 };
 // Shift Register pin assignments
 int dataPin     = 8;
@@ -93,25 +101,25 @@ int latchPin    = 9;
 int rowIndex   = 0;        // used for shifting out the data
 int layerIndex  = 0;
 
-void all(){
-  cube[0][0] = 255; cube[1][0] = 255; cube[2][0] = 255; cube[3][0] = 255; cube[4][0] = 255; cube[5][0] = 255; cube[6][0] = 255; cube[7][0] = 255; 
-  cube[0][1] = 255; cube[1][1] = 255; cube[2][1] = 255; cube[3][1] = 255; cube[4][1] = 255; cube[5][1] = 255; cube[6][1] = 255; cube[7][1] = 255; 
-  cube[0][2] = 255; cube[1][2] = 255; cube[2][2] = 255; cube[3][2] = 255; cube[4][2] = 255; cube[5][2] = 255; cube[6][2] = 255; cube[7][2] = 255; 
-  cube[0][3] = 255; cube[1][3] = 255; cube[2][3] = 255; cube[3][3] = 255; cube[4][3] = 255; cube[5][3] = 255; cube[6][3] = 255; cube[7][3] = 255; 
-  cube[0][4] = 255; cube[1][4] = 255; cube[2][4] = 255; cube[3][4] = 255; cube[4][4] = 255; cube[5][4] = 255; cube[6][4] = 255; cube[7][4] = 255; 
-  cube[0][5] = 255; cube[1][5] = 255; cube[2][5] = 255; cube[3][5] = 255; cube[4][5] = 255; cube[5][5] = 255; cube[6][5] = 255; cube[7][5] = 255; 
-  cube[0][6] = 255; cube[1][6] = 255; cube[2][6] = 255; cube[3][6] = 255; cube[4][6] = 255; cube[5][6] = 255; cube[6][6] = 255; cube[7][6] = 255; 
-  cube[0][7] = 255; cube[1][7] = 255; cube[2][7] = 255; cube[3][7] = 255; cube[4][7] = 255; cube[5][7] = 255; cube[6][7] = 255; cube[7][7] = 255; 
+void all() {
+  cube[0][0] = 255; cube[1][0] = 255; cube[2][0] = 255; cube[3][0] = 255; cube[4][0] = 255; cube[5][0] = 255; cube[6][0] = 255; cube[7][0] = 255;
+  cube[0][1] = 255; cube[1][1] = 255; cube[2][1] = 255; cube[3][1] = 255; cube[4][1] = 255; cube[5][1] = 255; cube[6][1] = 255; cube[7][1] = 255;
+  cube[0][2] = 255; cube[1][2] = 255; cube[2][2] = 255; cube[3][2] = 255; cube[4][2] = 255; cube[5][2] = 255; cube[6][2] = 255; cube[7][2] = 255;
+  cube[0][3] = 255; cube[1][3] = 255; cube[2][3] = 255; cube[3][3] = 255; cube[4][3] = 255; cube[5][3] = 255; cube[6][3] = 255; cube[7][3] = 255;
+  cube[0][4] = 255; cube[1][4] = 255; cube[2][4] = 255; cube[3][4] = 255; cube[4][4] = 255; cube[5][4] = 255; cube[6][4] = 255; cube[7][4] = 255;
+  cube[0][5] = 255; cube[1][5] = 255; cube[2][5] = 255; cube[3][5] = 255; cube[4][5] = 255; cube[5][5] = 255; cube[6][5] = 255; cube[7][5] = 255;
+  cube[0][6] = 255; cube[1][6] = 255; cube[2][6] = 255; cube[3][6] = 255; cube[4][6] = 255; cube[5][6] = 255; cube[6][6] = 255; cube[7][6] = 255;
+  cube[0][7] = 255; cube[1][7] = 255; cube[2][7] = 255; cube[3][7] = 255; cube[4][7] = 255; cube[5][7] = 255; cube[6][7] = 255; cube[7][7] = 255;
 }
-void none(){
-  cube[0][0] = 0; cube[1][0] = 0; cube[2][0] = 0; cube[3][0] = 0; cube[4][0] = 0; cube[5][0] = 0; cube[6][0] = 0; cube[7][0] = 0; 
-  cube[0][1] = 0; cube[1][1] = 0; cube[2][1] = 0; cube[3][1] = 0; cube[4][1] = 0; cube[5][1] = 0; cube[6][1] = 0; cube[7][1] = 0; 
-  cube[0][2] = 0; cube[1][2] = 0; cube[2][2] = 0; cube[3][2] = 0; cube[4][2] = 0; cube[5][2] = 0; cube[6][2] = 0; cube[7][2] = 0; 
-  cube[0][3] = 0; cube[1][3] = 0; cube[2][3] = 0; cube[3][3] = 0; cube[4][3] = 0; cube[5][3] = 0; cube[6][3] = 0; cube[7][3] = 0; 
-  cube[0][4] = 0; cube[1][4] = 0; cube[2][4] = 0; cube[3][4] = 0; cube[4][4] = 0; cube[5][4] = 0; cube[6][4] = 0; cube[7][4] = 0; 
-  cube[0][5] = 0; cube[1][5] = 0; cube[2][5] = 0; cube[3][5] = 0; cube[4][5] = 0; cube[5][5] = 0; cube[6][5] = 0; cube[7][5] = 0; 
-  cube[0][6] = 0; cube[1][6] = 0; cube[2][6] = 0; cube[3][6] = 0; cube[4][6] = 0; cube[5][6] = 0; cube[6][6] = 0; cube[7][6] = 0; 
-  cube[0][7] = 0; cube[1][7] = 0; cube[2][7] = 0; cube[3][7] = 0; cube[4][7] = 0; cube[5][7] = 0; cube[6][7] = 0; cube[7][7] = 0; 
+void none() {
+  cube[0][0] = 0; cube[1][0] = 0; cube[2][0] = 0; cube[3][0] = 0; cube[4][0] = 0; cube[5][0] = 0; cube[6][0] = 0; cube[7][0] = 0;
+  cube[0][1] = 0; cube[1][1] = 0; cube[2][1] = 0; cube[3][1] = 0; cube[4][1] = 0; cube[5][1] = 0; cube[6][1] = 0; cube[7][1] = 0;
+  cube[0][2] = 0; cube[1][2] = 0; cube[2][2] = 0; cube[3][2] = 0; cube[4][2] = 0; cube[5][2] = 0; cube[6][2] = 0; cube[7][2] = 0;
+  cube[0][3] = 0; cube[1][3] = 0; cube[2][3] = 0; cube[3][3] = 0; cube[4][3] = 0; cube[5][3] = 0; cube[6][3] = 0; cube[7][3] = 0;
+  cube[0][4] = 0; cube[1][4] = 0; cube[2][4] = 0; cube[3][4] = 0; cube[4][4] = 0; cube[5][4] = 0; cube[6][4] = 0; cube[7][4] = 0;
+  cube[0][5] = 0; cube[1][5] = 0; cube[2][5] = 0; cube[3][5] = 0; cube[4][5] = 0; cube[5][5] = 0; cube[6][5] = 0; cube[7][5] = 0;
+  cube[0][6] = 0; cube[1][6] = 0; cube[2][6] = 0; cube[3][6] = 0; cube[4][6] = 0; cube[5][6] = 0; cube[6][6] = 0; cube[7][6] = 0;
+  cube[0][7] = 0; cube[1][7] = 0; cube[2][7] = 0; cube[3][7] = 0; cube[4][7] = 0; cube[5][7] = 0; cube[6][7] = 0; cube[7][7] = 0;
 }
 void box(){
   cube[0][0] = 0b11111111; cube[1][0] = 0b10000001; cube[2][0] = 0b10000001; cube[3][0] = 0b10000001; cube[4][0] = 0b10000001; cube[5][0] = 0b10000001; cube[6][0] = 0b10000001; cube[7][0] = 0b11111111; 
@@ -154,24 +162,46 @@ void box4(){
   cube[0][7] = 0b00000000; cube[1][7] = 0b00000000; cube[2][7] = 0b00000000; cube[3][7] = 0b00000000; cube[4][7] = 0b00000000; cube[5][7] = 0b00000000; cube[6][7] = 0b00000000; cube[7][7] = 0b00000000;
 }
 
-void draw(){
-  // Repeat p many times before moving on to next frame 
+byte caraVert[] = {
+  0b10000000,  // 1
+  0b01000000,  // 2
+  0b00100000,  // 3
+  0b00010000,  // 4
+  0b00001000,  // 5
+  0b00000100,  // 6
+  0b00000010,  // 7
+  0b00000001 //8
+};
+
+byte caraHor[] = {
+  0b10000000,  // 1
+  0b01000000,  // 2
+  0b00100000,  // 3
+  0b00010000,  // 4
+  0b00001000,  // 5
+  0b00000100,  // 6
+  0b00000010,  // 7
+  0b00000001 //8
+};
+
+void draw() {
+  // Repeat p many times before moving on to next frame
   // change what p is less than; more for slower annimation, less for faster
-  for(int p = 0; p < 10; p++){ 
+  for (int p = 0; p < 10; p++) {
     // Reset to first layer
     layerIndex = 0;
-    for(int q = 0; q < 8; q++){
+    for (int q = 0; q < 8; q++) {
       // Reset to row 1
       rowIndex = 0;
       // Make shift registers accept new data
       digitalWrite(latchPin, LOW);
       // Shift out the layer data first
-      shiftOut(dataPin, clockPin, MSBFIRST, 0b00000001 << layerIndex);    
-      for(int t = 0; t < 8; t++){
+      shiftOut(dataPin, clockPin, MSBFIRST, 0b00000001 << layerIndex);
+      for (int t = 0; t < 8; t++) {
         // Shift out the rows of data
         shiftOut(dataPin, clockPin, MSBFIRST, cube[layerIndex][rowIndex]);
         // Move onto the next row then repeat
-        rowIndex++;                                                       
+        rowIndex++;
       }
       // Move onto the next layer and repeat
       layerIndex++;
@@ -180,7 +210,7 @@ void draw(){
   }
 }
 
-void setup() 
+void setup()
 {
   // Setup the pin modes
   pinMode(dataPin,     OUTPUT);
@@ -188,11 +218,82 @@ void setup()
   pinMode(latchPin,    OUTPUT);
 }
 
-void loop() 
+void loop()
 {
-/*  all();
+  /*Expanding Box Animation
+    box();
+    draw();
+  */
+  capasMovVert ();
+
+  none();
   draw();
-  *///Expanding Box Animation
+
+  capasMovHor();
+
+  boxZoom();
+
+}
+
+void capasMovVert () {
+  for (int x = 0; x < 7; x++) {
+    digitalWrite(latchPin, LOW);
+
+    shiftOut(dataPin, clockPin, MSBFIRST, 0b11111111);
+    shiftOut(dataPin, clockPin, MSBFIRST, caraVert[x]);
+    shiftOut(dataPin, clockPin, MSBFIRST, caraVert[x]);
+    shiftOut(dataPin, clockPin, MSBFIRST, caraVert[x]);
+    shiftOut(dataPin, clockPin, MSBFIRST, caraVert[x]);
+    shiftOut(dataPin, clockPin, MSBFIRST, caraVert[x]);
+    shiftOut(dataPin, clockPin, MSBFIRST, caraVert[x]);
+    shiftOut(dataPin, clockPin, MSBFIRST, caraVert[x]);
+    shiftOut(dataPin, clockPin, MSBFIRST, caraVert[x]);
+    digitalWrite(latchPin, HIGH);
+    delay(200);
+  }
+  for (int x = 7; x >= 0; x--) {
+    digitalWrite(latchPin, LOW);
+
+    shiftOut(dataPin, clockPin, MSBFIRST, 0b11111111);
+    shiftOut(dataPin, clockPin, MSBFIRST, caraVert[x]);
+    shiftOut(dataPin, clockPin, MSBFIRST, caraVert[x]);
+    shiftOut(dataPin, clockPin, MSBFIRST, caraVert[x]);
+    shiftOut(dataPin, clockPin, MSBFIRST, caraVert[x]);
+    shiftOut(dataPin, clockPin, MSBFIRST, caraVert[x]);
+    shiftOut(dataPin, clockPin, MSBFIRST, caraVert[x]);
+    shiftOut(dataPin, clockPin, MSBFIRST, caraVert[x]);
+    shiftOut(dataPin, clockPin, MSBFIRST, caraVert[x]);
+    digitalWrite(latchPin, HIGH);
+    delay(200);
+  }
+}
+
+void capasMovHor () {
+  for (int y = 0; y < 8; y++) {
+    digitalWrite(latchPin, LOW);
+    shiftOut(dataPin, clockPin, MSBFIRST, caraHor[y]);
+
+    for (int x = 0; x <= 7; x++) {
+      shiftOut(dataPin, clockPin, MSBFIRST, 0b11111111);
+    }
+    digitalWrite(latchPin, HIGH);
+    delay(200);
+  }
+
+  for (int y = 6; y >= 0; y--) {
+    digitalWrite(latchPin, LOW);
+    shiftOut(dataPin, clockPin, MSBFIRST, caraHor[y]);
+
+    for (int x = 0; x < 8; x++) {
+      shiftOut(dataPin, clockPin, MSBFIRST, 0b11111111);
+    }
+    digitalWrite(latchPin, HIGH);
+    delay(200);
+  }
+}
+
+void boxZoom() {
+  for (int a = 0; a <= 15; a++) {
     box();
     draw();
     box2();
@@ -205,5 +306,5 @@ void loop()
     draw();
     box2();
     draw();
-    
+ }
 }
